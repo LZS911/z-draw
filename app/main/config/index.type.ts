@@ -2,6 +2,7 @@ export interface AppConfig {
   gifts: IGiftItem[];
   prizes: IPrizeItem[];
   speed: number[];
+  rule: string;
 }
 
 export interface IPrizeItem {

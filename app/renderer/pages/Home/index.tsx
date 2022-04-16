@@ -16,7 +16,7 @@ import {
 import { totalList } from './index.data';
 import { DrawBtn, GiftItem, HomeWrapper } from './style';
 
-const initialGiftWidth = 70;
+const initialGiftWidth = 60;
 const maxGiftWidth = 120;
 const initialActiveId = 1;
 const initialSpeed = [336, 168, 84, 42];
@@ -36,6 +36,7 @@ const Home: React.FC = () => {
   const [activeId, setActiveId] = useState(initialActiveId);
   const [gifts, setGifts] = useState<IGiftItem[]>([]);
   const [prizes, setPrizes] = useState<IPrizeItem[]>([]);
+  const [ruleString, setRuleString] = useState('');
 
   const resetState = () => {
     setActiveId(1);
@@ -56,7 +57,7 @@ const Home: React.FC = () => {
   const handleResize = useDebounce((e: any) => {
     unstable_batchedUpdates(() => {
       const calcWidth =
-        (initialGiftWidth / 700) * (e?.currentTarget?.innerHeight ?? 700);
+        (initialGiftWidth / 620) * (e?.currentTarget?.innerHeight ?? 620);
       setGiftWidth(calcWidth > maxGiftWidth ? maxGiftWidth : calcWidth);
     });
   }, 200);
@@ -133,6 +134,7 @@ const Home: React.FC = () => {
       }
       setGifts(config.gifts);
       setPrizes(config.prizes);
+      setRuleString(config.rule);
       utilsArr = generateUtilsArray(config.gifts);
       speed = config.speed ?? initialSpeed;
     };
@@ -171,7 +173,11 @@ const Home: React.FC = () => {
             );
           })}
 
-          <div className="rule-container">这里是规则内容</div>
+          <div
+            className="rule-container"
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{ __html: ruleString }}
+          />
         </div>
         <div className="right-wrapper">
           {realGifts.map((v) => {

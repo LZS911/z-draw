@@ -47,6 +47,10 @@ export const HomeWrapper = styled.div`
         color: ${whiteColor};
         padding: 10px;
         width: 250px;
+        p {
+          padding: 0;
+          margin: 0;
+        }
       }
     }
 

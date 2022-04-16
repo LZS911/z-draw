@@ -18,7 +18,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 export enum TimeFormatEnum {
-  dateFormatTime = 'YYYY-MM-DD HH:mm:ss',
+  dateFormatTime = 'YYYY-MM-DD HH-mm-ss',
   dateFormatDate = 'YYYY-MM-DD',
   dateFormatMonth = 'YYYY-MM',
 }

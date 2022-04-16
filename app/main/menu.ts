@@ -1,10 +1,4 @@
-import {
-  app,
-  Menu,
-  shell,
-  BrowserWindow,
-  MenuItemConstructorOptions,
-} from 'electron';
+import { app, Menu, BrowserWindow, MenuItemConstructorOptions } from 'electron';
 import config from './config';
 
 interface DarwinMenuItemConstructorOptions extends MenuItemConstructorOptions {
@@ -255,32 +249,13 @@ export default class MenuBuilder {
               ],
       },
       {
-        label: 'Help',
+        label: '设置',
         submenu: [
           {
-            label: 'Learn More',
+            label: '备份',
             click() {
-              shell.openExternal('https://electronjs.org');
-            },
-          },
-          {
-            label: 'Documentation',
-            click() {
-              shell.openExternal(
-                'https://github.com/electron/electron/tree/main/docs#readme'
-              );
-            },
-          },
-          {
-            label: 'Community Discussions',
-            click() {
-              shell.openExternal('https://www.electronjs.org/community');
-            },
-          },
-          {
-            label: 'Search Issues',
-            click() {
-              shell.openExternal('https://github.com/electron/electron/issues');
+              // shell.openExternal('https://electronjs.org');
+              config.backupConfigFile();
             },
           },
         ],

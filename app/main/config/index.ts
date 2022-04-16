@@ -1,6 +1,6 @@
 import { app } from 'electron';
 import path from 'path';
-import { gifts, prizes, speed } from './index.data';
+import { gifts, prizes, speed, rule } from './index.data';
 import { AppConfig } from './index.type';
 import * as fs from 'fs/promises';
 import { isExist } from '../utils/fs';
@@ -18,6 +18,7 @@ class Config {
       gifts,
       prizes,
       speed,
+      rule,
     };
 
     this.init();
@@ -47,9 +48,9 @@ class Config {
   public async backupConfigFile() {
     const appPath = app.getAppPath();
     const config = await this.readConfigFile();
-    const backupFileName = `./config${moment().format(
-      TimeFormatEnum.dateFormatTime
-    )}.json`;
+    const backupFileName = `./config-${moment()
+      .format(TimeFormatEnum.dateFormatTime)
+      .replace(' ', '-')}.json`;
     log.writeLog(`备份配置文件: ${JSON.stringify(config)}`);
     await fs.writeFile(
       path.join(appPath, backupFileName),
