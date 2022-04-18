@@ -10,7 +10,7 @@ class Log {
   )}.txt`;
 
   public get logFilePath() {
-    const appPath = app.getAppPath();
+    const appPath = app.getPath('userData');
     return path.join(appPath, this.logFileName);
   }
 

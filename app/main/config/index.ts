@@ -25,7 +25,7 @@ class Config {
   }
 
   public get configFilePath() {
-    const appPath = app.getAppPath();
+    const appPath = app.getPath('userData');
     return path.join(appPath, this.configFileName);
   }
 
