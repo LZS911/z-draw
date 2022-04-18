@@ -1,41 +1,48 @@
 import { IGiftItem, IPrizeItem } from './index.type';
 
-export const speed: number[] = [336, 168, 84, 42, 42, 42];
+export const speed: number[] = [236, 168, 84, 42, 42];
 export const prizes: IPrizeItem[] = [
   {
-    name: '电烙饼',
+    id: 1,
+    name: '空气净化器',
     score: 5000,
     count: 10,
+    pic: 'assets/image/空气净化器.png',
   },
   {
-    name: '电饭煲',
+    id: 2,
+    name: '华为手机',
     score: 10000,
     count: 10,
+    pic: 'assets/image/华为手机.png',
   },
   {
-    name: '豆浆机',
+    id: 3,
+    name: '电扇',
     score: 20000,
     count: 10,
+    pic: 'assets/image/电扇.jpg',
   },
   {
-    name: '洗衣机',
+    id: 4,
+    name: '电饭煲',
     score: 40000,
     count: 10,
+    pic: 'assets/image/电饭煲.png',
   },
   {
-    name: '冰箱',
+    id: 5,
+    name: '洗衣机',
     score: 50000,
     count: 10,
+    pic: 'assets/image/洗衣机.png',
   },
   {
-    name: '空调',
+    id: 6,
+    name: '冰箱',
     score: 80000,
     count: 10,
-  },
-  {
-    name: '电视',
-    score: 150000,
-    count: 10,
+    pic: 'assets/image/冰箱.png',
   },
 ];
 
@@ -163,4 +170,4 @@ export const gifts: IGiftItem[] = [
 ];
 
 export const rule =
-  '<div> <p > 游戏规则 < /p> <p > 1. 凭定销货单实付满5000元可参与游戏一次,满10000元两次,以此类推,上不封顶,积分累计可兑换相应礼品(同一姓名、 地址、 多单金额可累计) < /p> <p > 2. 积分不足部分抹零 < /p> <p > 3. 礼品每人限领1份,若累计积分所对应礼品已兑完, 则判定兑换下一档礼品 < /p> <p > 4. 附加小礼品每人限领一份 < /p> <p > 5. 礼品数量有限,先到先得、 兑完即止 < /p> </div>';
+  '<div> <p> 游戏规则 </p> <p> 1. 凭定销货单实付满5000元可参与游戏一次,满10000元两次,以此类推,上不封顶,积分累计可兑换相应礼品(同一姓名、 地址、 多单金额可累计) </p> <p> 2. 积分不足部分抹零 </p> <p> 3. 礼品每人限领1份,若累计积分所对应礼品已兑完, 则判定兑换下一档礼品 </p> <p> 4. 附加小礼品每人限领一份 </p> <p> 5. 礼品数量有限,先到先得、 兑完即止 </p> </div>';

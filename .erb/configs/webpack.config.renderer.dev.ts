@@ -156,6 +156,7 @@ export default merge(baseConfig, {
     headers: { 'Access-Control-Allow-Origin': '*' },
     static: {
       publicPath: '/',
+      directory: webpackPaths.srcRendererPath,
     },
     historyApiFallback: {
       verbose: true,

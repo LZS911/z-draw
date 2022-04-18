@@ -17,5 +17,8 @@ contextBridge.exposeInMainWorld('electronAPI', {
     async writeConfigFile(config) {
       ipcRenderer.send('writeConfigFile', config);
     },
+    async exchangePrize(id) {
+      ipcRenderer.send('exchangePrize', id);
+    },
   },
 });

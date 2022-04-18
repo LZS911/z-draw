@@ -5,10 +5,6 @@ import { isArray, isObject, isString, JSTypeTag } from './typeTools';
 
 const { ipcRenderer } = window.electronAPI;
 
-export const throwError = () => {
-  GlobalMessage.error('发生未知错误!');
-};
-
 export const trimDeep = (data: unknown): unknown => {
   const tempData = cloneDeep(data);
 
@@ -101,12 +97,12 @@ export const getEndStopIndex = (gifts: IGiftItem[], utilsArr: number[]) => {
   const randomIndex = randomNum(0, 999);
   ipcRenderer.writeLog(`random index: ${randomIndex}`);
   if (randomIndex < 0 || randomIndex > 999) {
-    throwError();
+    GlobalMessage.error('随机值范围出现错误!');
   }
   const res = utilsArr[randomIndex];
   ipcRenderer.writeLog(`最后结果: ${res}`);
   if (!res || res < 0 || res > gifts.length) {
-    throwError();
+    GlobalMessage.error('随机值未能成功索引数组!');
   }
   return res;
 };

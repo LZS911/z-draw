@@ -6,6 +6,7 @@ export interface AppConfig {
 }
 
 export interface IPrizeItem {
+  id: number;
   name: string;
   score: number;
   count: number;

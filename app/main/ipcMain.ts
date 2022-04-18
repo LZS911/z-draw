@@ -20,4 +20,8 @@ export default function initIpcMain() {
   ipcMain.on('writeConfigFile', (_, _config: AppConfig) => {
     config.writeConfigFile(_config);
   });
+
+  ipcMain.on('exchangePrize', (_, id: number) => {
+    config.exchangePrize(id);
+  });
 }

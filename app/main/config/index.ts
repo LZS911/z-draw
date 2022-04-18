@@ -61,6 +61,15 @@ class Config {
   public async writeConfigFile(config: AppConfig) {
     await fs.writeFile(this.configFilePath, JSON.stringify(config));
   }
+
+  public async exchangePrize(id: number) {
+    this.config.prizes.forEach((v) => {
+      if (v.id === id) {
+        v.count -= 1;
+      }
+    });
+    this.writeConfigFile(this.config);
+  }
 }
 
 export default new Config();

@@ -5,6 +5,7 @@ export interface IIpcRenderer {
   backupConfigFile(): void;
   readConfigFile(fun: (config: AppConfig) => void): void;
   writeConfigFile(config: AppConfig): void;
+  exchangePrize(id: number): void;
 }
 export interface IElectronAPI {
   ipcRenderer: IIpcRenderer;

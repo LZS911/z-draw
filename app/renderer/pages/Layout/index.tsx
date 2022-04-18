@@ -6,9 +6,6 @@ const Layout: React.FC = ({ children }) => {
   return (
     <>
       <LayoutWrapper>
-        {/* <div className="header">
-          <Header />
-        </div> */}
         <div className="wrapper">
           <Paper className="content" square>
             {children}

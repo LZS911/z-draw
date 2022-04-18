@@ -7,12 +7,13 @@ const redColor = '#db5a6b';
 const greenColor = '#3cb371';
 const orangeColor = '#ff6347';
 const whiteColor = '#fff';
-const btnBg = '#33CCFF';
-const btnClickBg = '#FFA488';
+const btnBg = '#cc6140';
 
 export const HomeWrapper = styled.div`
   height: 100%;
-  -webkit-app-region: drag;
+  background: url('/assets/image/bg.jpg');
+  background-size: 100% 100%;
+
   .main-wrapper {
     display: flex;
     height: calc(100% - 130px);
@@ -97,6 +98,9 @@ export const HomeWrapper = styled.div`
           background-color: ${whiteColor};
           cursor: pointer;
           border-radius: 4px;
+          img {
+            height: 100%;
+          }
         }
 
         .prize-score {
@@ -138,15 +142,23 @@ export const GiftItem = styled.div<{
   z-index: 10;
   display: inline-block;
   box-sizing: border-box;
-  padding-top: 10px;
+  padding-top: 6px;
   border-radius: 5px;
   border: 2px solid;
   border-color: ${(props) => (props.active ? activeColor : grayColor)};
-  background-color: ${(props) => (props.active ? '#146c8a' : whiteColor)};
+  background-color: ${(props) => (props.active ? orangeColor : whiteColor)};
   .gift-name {
     text-align: center;
     font-size: 14px;
     color: ${(props) => (props.active ? activeColor : grayColor)};
+    height: 100%;
+    img {
+      height: 80%;
+      width: 100%;
+    }
+    div {
+      text-align: center;
+    }
   }
 `;
 
@@ -163,12 +175,11 @@ export const DrawBtn = styled.button<{
   left: ${(props) => props.top};
   top: ${(props) => props.top};
   z-index: 10;
-  background-color: ${(props) => (props.isClicking ? btnClickBg : btnBg)};
-  box-shadow: 1px 1px 20px 16px
-    ${(props) => (props.isClicking ? '#cc6140' : '#29b6e4')} inset;
+  box-shadow: 1px 1px 6px 6px ${btnBg} inset;
   border-radius: 5px;
   cursor: pointer;
   padding: 0;
   font-size: 45px;
-  /* color:${(props) => (props.isClicking ? grayColor : activeColor)}; */
+  background: url('../../assets/image/center.jpg');
+  background-size: 100% 100%;
 `;

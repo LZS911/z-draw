@@ -6,3 +6,9 @@ export const getTimeDetail = () => {
   const date = moment().date();
   return { month, week, date };
 };
+
+export enum TimeFormatEnum {
+  dateFormatTime = 'YYYY-MM-DD HH-mm-ss',
+  dateFormatDate = 'YYYY-MM-DD',
+  dateFormatMonth = 'YYYY-MM',
+}

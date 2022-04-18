@@ -1,7 +1,11 @@
 import { Alert, AlertColor, AlertTitle, Snackbar } from '@material-ui/core';
+import moment from 'moment';
 import React, { useEffect, useState } from 'react';
 import GlobalMessage from '../../utils/message';
+import { TimeFormatEnum } from '../../utils/time';
 import { IGlobalSnackbarsInterface } from './index.type';
+
+const { ipcRenderer } = window.electronAPI;
 
 const GlobalSnackbars: React.FC<IGlobalSnackbarsInterface> = () => {
   const [isOpen, setOpen] = useState(false);
@@ -10,6 +14,9 @@ const GlobalSnackbars: React.FC<IGlobalSnackbarsInterface> = () => {
 
   useEffect(() => {
     const setMessageContent = (_severity: AlertColor, msg: string) => {
+      ipcRenderer.writeLog(
+        `${msg}-${moment().format(TimeFormatEnum.dateFormatTime)}`
+      );
       setOpen(true);
       setSeverity(_severity);
       setContent(msg);
