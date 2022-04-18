@@ -1,7 +1,33 @@
 .main-wrapper {
   background-image: url('../../assets/image/bg.jpg');
+  background-size: 100% 100%;
 }
 
 .draw-btn {
   background-image: url('../../assets/image/center.jpg');
+  background-size: 100% 100%;
+}
+
+.prize-image {
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: center;
+}
+.prize1 {
+  background-image: url('../../assets/image/prize1.png');
+}
+.prize2 {
+  background-image: url('../../assets/image/prize2.png');
+}
+.prize3 {
+  background-image: url('../../assets/image/prize3.jpg');
+}
+.prize4 {
+  background-image: url('../../assets/image/prize4.png');
+}
+.prize5 {
+  background-image: url('../../assets/image/prize5.png');
+}
+.prize6 {
+  background-image: url('../../assets/image/prize6.png');
 }

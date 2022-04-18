@@ -210,7 +210,7 @@ const Home: React.FC = () => {
               >
                 <div className="gift-name">
                   <img alt={v.id.toString()} />
-                  <div>{v.score}</div>
+                  <div>{v.title}</div>
                 </div>
               </GiftItem>
             );
@@ -235,9 +235,10 @@ const Home: React.FC = () => {
           {prizes.map((v) => {
             return (
               <div key={v.name} className="prize-item">
-                <div className="prize-image" onClick={() => exchangePrize(v)}>
-                  <img className="img" src={v.pic} alt={v.name} />
-                </div>
+                <div
+                  className={`prize${v.id} prize-image`}
+                  onClick={() => exchangePrize(v)}
+                />
                 <div className="prize-score">{v.score}</div>
               </div>
             );

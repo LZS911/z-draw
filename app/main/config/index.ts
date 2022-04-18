@@ -48,7 +48,7 @@ class Config {
   }
 
   public async backupConfigFile() {
-    const appPath = app.getAppPath();
+    const appPath = app.getPath('userData');
     const config = await this.readConfigFile();
     const backupFileName = `./config-${moment()
       .format(TimeFormatEnum.dateFormatTime)
