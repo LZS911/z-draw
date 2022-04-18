@@ -15,6 +15,7 @@ import {
 } from '../../utils/tool';
 import { totalList } from './index.data';
 import { DrawBtn, GiftItem, HomeWrapper } from './style';
+import './index.css';
 
 const initialGiftWidth = 70;
 const maxGiftWidth = 120;
@@ -220,6 +221,7 @@ const Home: React.FC = () => {
             isClicking={isClicking}
             onClick={startRun}
             disabled={isClicking}
+            className="draw-btn"
           />
         </div>
       </div>

@@ -78,6 +78,7 @@ export default merge(baseConfig, {
       // Images
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        loader: 'file-loader',
         type: 'asset/resource',
       },
     ],

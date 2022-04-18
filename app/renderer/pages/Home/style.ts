@@ -11,7 +11,6 @@ const btnBg = '#cc6140';
 
 export const HomeWrapper = styled.div`
   height: 100%;
-  background: url('/assets/image/bg.jpg');
   background-size: 100% 100%;
 
   .main-wrapper {
@@ -180,6 +179,5 @@ export const DrawBtn = styled.button<{
   cursor: pointer;
   padding: 0;
   font-size: 45px;
-  background: url('../../assets/image/center.jpg');
   background-size: 100% 100%;
 `;

@@ -33,6 +33,8 @@ class Config {
     if (!(await isExist(this.configFilePath))) {
       await this.createOrUpdateConfigFile();
     }
+    log.writeLog(`当前路径: ${this.configFilePath}`);
+
     this.config = await this.readConfigFile();
   }
 
