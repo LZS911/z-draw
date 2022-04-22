@@ -24,4 +24,8 @@ export default function initIpcMain() {
   ipcMain.on('exchangePrize', (_, id: number) => {
     config.exchangePrize(id);
   });
+
+  ipcMain.on('configFilePath', async (event) => {
+    event.sender.send('sendConfigPath', config.configFilePath);
+  });
 }

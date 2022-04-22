@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-const activeColor = '#FFA488';
 const grayColor = '#999999';
 const yellowColor = '#ffff00';
 const redColor = '#db5a6b';
@@ -9,15 +8,17 @@ const orangeColor = '#ff6347';
 const whiteColor = '#fff';
 const btnBg = '#cc6140';
 
-export const HomeWrapper = styled.div`
+export const HomeWrapper = styled.div<{
+  ruleBackground: string;
+  footerBackground: string;
+}>`
   height: 100%;
   background-size: 100% 100%;
-
+  margin: auto;
   .main-wrapper {
     display: flex;
     height: calc(100% - 130px);
     .left-wrapper {
-      width: 20%;
       min-width: 300px;
       height: calc(100% - 45px);
       padding: 30px 30px 15px 30px;
@@ -42,7 +43,7 @@ export const HomeWrapper = styled.div`
       }
 
       .rule-container {
-        background-color: ${orangeColor};
+        background-color: ${(props) => props.ruleBackground};
         border-radius: 10px;
         color: ${whiteColor};
         padding: 10px;
@@ -55,7 +56,6 @@ export const HomeWrapper = styled.div`
     }
 
     .right-wrapper {
-      width: 80%;
       height: calc(100% - 45px);
       display: flex;
       justify-content: center;
@@ -72,7 +72,7 @@ export const HomeWrapper = styled.div`
     width: calc(100% - 40px);
     display: flex;
     align-items: center;
-    background-color: ${redColor};
+    background-color: ${(props) => props.footerBackground};
     padding: 0 20px;
     justify-content: space-between;
 
@@ -132,6 +132,7 @@ export const GiftItem = styled.div<{
   top: string;
   active: boolean;
   width: string;
+  activeColor: string;
 }>`
   width: ${(props) => props.width};
   height: ${(props) => props.width};
@@ -141,23 +142,17 @@ export const GiftItem = styled.div<{
   z-index: 10;
   display: inline-block;
   box-sizing: border-box;
-  padding-top: 6px;
-  border-radius: 5px;
-  border: 2px solid;
-  border-color: ${(props) => (props.active ? activeColor : grayColor)};
+  border-radius: 6px;
+  border-style: solid;
+  border-width: ${(props) => (props.active ? '8px' : 0)};
+  border-color: ${(props) => (props.active ? props.activeColor : grayColor)};
   background-color: ${(props) => (props.active ? orangeColor : whiteColor)};
-  .gift-name {
+  .gift-pic {
     text-align: center;
-    font-size: 14px;
-    color: ${(props) => (props.active ? activeColor : grayColor)};
     height: 100%;
-    img {
-      height: 80%;
-      width: 100%;
-    }
-    div {
-      text-align: center;
-    }
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position: center;
   }
 `;
 
@@ -174,7 +169,6 @@ export const DrawBtn = styled.button<{
   left: ${(props) => props.top};
   top: ${(props) => props.top};
   z-index: 10;
-  box-shadow: 1px 1px 6px 6px ${btnBg} inset;
   border-radius: 5px;
   cursor: pointer;
   padding: 0;

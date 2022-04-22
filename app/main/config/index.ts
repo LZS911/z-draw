@@ -1,6 +1,14 @@
 import { app } from 'electron';
 import path from 'path';
-import { gifts, prizes, speed, rule } from './index.data';
+import {
+  gifts,
+  prizes,
+  speed,
+  rule,
+  ruleBackground,
+  footerBackground,
+  activeColor,
+} from './index.data';
 import { AppConfig } from './index.type';
 import * as fs from 'fs/promises';
 import { isExist } from '../utils/fs';
@@ -19,6 +27,9 @@ class Config {
       prizes,
       speed,
       rule,
+      ruleBackground,
+      footerBackground,
+      activeColor,
     };
 
     this.init();

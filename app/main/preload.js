@@ -20,5 +20,11 @@ contextBridge.exposeInMainWorld('electronAPI', {
     async exchangePrize(id) {
       ipcRenderer.send('exchangePrize', id);
     },
+    async getConfigPath(func) {
+      ipcRenderer.send('configFilePath');
+      ipcRenderer.once('sendConfigPath', (_, data) => {
+        func(data);
+      });
+    },
   },
 });

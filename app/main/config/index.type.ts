@@ -3,6 +3,9 @@ export interface AppConfig {
   prizes: IPrizeItem[];
   speed: number[];
   rule: string;
+  ruleBackground: string;
+  footerBackground: string;
+  activeColor: string;
 }
 
 export interface IPrizeItem {

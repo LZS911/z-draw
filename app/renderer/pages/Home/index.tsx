@@ -40,6 +40,10 @@ const Home: React.FC = () => {
   const [ruleString, setRuleString] = useState('');
   const [refreshFlag, setRefreshFlag] = useState(false);
 
+  const [ruleBackground, setRuleBackground] = useState('#ff6347');
+  const [footerBackground, setFooterBackground] = useState('#db5a6b');
+  const [activeColor, setActiveColor] = useState('#40E0D0');
+
   const resetState = () => {
     setActiveId(1);
     setTotalScore(0);
@@ -133,7 +137,6 @@ const Home: React.FC = () => {
       return;
     }
     ipcRenderer.exchangePrize(prize.id);
-    setTotalScore(totalScore - prize.score);
     setRefreshFlag(!refreshFlag);
     GlobalMessage.success(`兑换${prize.name}成功!`);
   }, 300);
@@ -167,6 +170,9 @@ const Home: React.FC = () => {
       setGifts(config.gifts);
       setPrizes(config.prizes);
       setRuleString(config.rule);
+      setRuleBackground(config.ruleBackground);
+      setFooterBackground(config.footerBackground);
+      setActiveColor(config.activeColor);
       utilsArr = generateUtilsArray(config.gifts);
       speed = config.speed ?? initialSpeed;
     };
@@ -178,7 +184,10 @@ const Home: React.FC = () => {
   }, [refreshFlag]);
 
   return (
-    <HomeWrapper>
+    <HomeWrapper
+      ruleBackground={ruleBackground}
+      footerBackground={footerBackground}
+    >
       <div className="main-wrapper">
         <div className="left-wrapper">
           {totalList.map((v, index) => {
@@ -207,11 +216,9 @@ const Home: React.FC = () => {
                 top={v.top ?? '0'}
                 active={activeId === v.id}
                 width={`${giftWidth}px`}
+                activeColor={activeColor}
               >
-                <div className="gift-name">
-                  <img alt={v.id.toString()} />
-                  <div>{v.title}</div>
-                </div>
+                <div className={`gift-pic gift-${v.score}`} />
               </GiftItem>
             );
           })}
