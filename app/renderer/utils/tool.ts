@@ -71,18 +71,21 @@ export const setGiftPosition = (
   return realGifts;
 };
 
+export const probabilityRefinement = 100000;
+
 export const generateUtilsArray = (gifts: IGiftItem[]) => {
-  const resArr: number[] = new Array(1000);
+  const resArr: number[] = new Array(probabilityRefinement);
   let start = 0;
   let end = 0;
 
-  const probabilityArr = gifts.map((v) => v.probability * 1000);
+  const probabilityArr = gifts.map(
+    (v) => v.probability * probabilityRefinement
+  );
   probabilityArr.forEach((v, index) => {
     start = index === 0 ? 0 : end;
-    end = index === probabilityArr.length - 1 ? 1000 : v * (index + 1);
+    end = v + start;
     resArr.fill(index + 1, start, end);
   });
-  ipcRenderer.writeLog(`通过概率得出的数组: ${resArr.toString()}`);
   return resArr;
 };
 
@@ -94,9 +97,9 @@ export const randomNum = (minNum: number, maxNum: number) => {
 };
 
 export const getEndStopIndex = (gifts: IGiftItem[], utilsArr: number[]) => {
-  const randomIndex = randomNum(0, 999);
+  const randomIndex = randomNum(0, probabilityRefinement - 1);
   ipcRenderer.writeLog(`random index: ${randomIndex}`);
-  if (randomIndex < 0 || randomIndex > 999) {
+  if (randomIndex < 0 || randomIndex > probabilityRefinement - 1) {
     GlobalMessage.error('随机值范围出现错误!');
   }
   const res = utilsArr[randomIndex];

@@ -11,6 +11,7 @@ import GlobalMessage from '../../utils/message';
 import {
   generateUtilsArray,
   getEndStopIndex,
+  probabilityRefinement,
   setGiftPosition,
 } from '../../utils/tool';
 import { totalList } from './index.data';
@@ -158,12 +159,14 @@ const Home: React.FC = () => {
 
   useEffect(() => {
     const initConfig = (config: AppConfig) => {
-      const probabilityArr = config.gifts.map((v) => v.probability * 100);
+      const probabilityArr = config.gifts.map(
+        (v) => v.probability * probabilityRefinement
+      );
       const sumProbability = probabilityArr.reduce((pre, cur) => {
         return pre + cur;
       }, 0);
       ipcRenderer.writeLog(`当前所有奖品概率总和为: ${sumProbability}%`);
-      if (sumProbability !== 100) {
+      if (sumProbability !== probabilityRefinement) {
         GlobalMessage.error('当前概率总和不为100%!');
         return;
       }
