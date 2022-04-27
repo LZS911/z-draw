@@ -16,6 +16,7 @@ import {
 } from '../../utils/tool';
 import { totalList } from './index.data';
 import { DrawBtn, GiftItem, HomeWrapper } from './style';
+// import music from '../../assets/audio/aefnn-xruii.mp3';
 import './index.css';
 
 const initialGiftWidth = 70;
@@ -268,7 +269,12 @@ const Home: React.FC = () => {
         </button>
       </div>
 
-      <audio loop id="audio" src="../../assets/audio/aefnn-xruii.mp3">
+      <audio
+        loop
+        id="audio"
+        // eslint-disable-next-line global-require
+        src={require('../../assets/audio/aefnn-xruii.mp3')}
+      >
         <track kind="captions" />
       </audio>
     </HomeWrapper>

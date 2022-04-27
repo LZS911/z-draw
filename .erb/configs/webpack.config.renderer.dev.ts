@@ -91,7 +91,7 @@ export default merge(baseConfig, {
       },
       // Images
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        test: /\.(png|svg|jpg|jpeg|gif|mp3)$/i,
         type: 'asset/resource',
       },
     ],
