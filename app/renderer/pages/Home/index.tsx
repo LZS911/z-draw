@@ -114,9 +114,14 @@ const Home: React.FC = () => {
       return;
     }
     setTotalScore((v) => v + giftItem.score);
+
+    const audio = document.querySelector('#audio');
+    (audio as any).pause();
   };
 
   const startRun = () => {
+    const audio = document.querySelector('#audio');
+    (audio as any).play();
     setIsClicking(true);
     const endStopIndex = getEndStopIndex(gifts, utilsArr);
     setTotalCount((v) => v + 1);
@@ -262,6 +267,10 @@ const Home: React.FC = () => {
           重 置
         </button>
       </div>
+
+      <audio loop id="audio" src="../../assets/audio/aefnn-xruii.mp3">
+        <track kind="captions" />
+      </audio>
     </HomeWrapper>
   );
 };
